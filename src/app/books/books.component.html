@@ -1,0 +1,38 @@
+<div class="section-container">
+    <h2>
+      Book List
+    </h2>
+    <table class="table table-inverse table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Published</th>
+          <th>First Sentence</th>
+          <!-- <th>Status</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books">
+            <!-- http://localhost:57283/api/orderdetail/getorderdetails/5 -->
+          <td>{{ book.id }}</td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.published }}</td>
+          <td>{{ book.first_sentence }}</td>
+          <!-- <td>Status</td> -->
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- <app-pagination
+    (goPage)="goToPage($event)"
+    (goPrev)="goToPrevious()"
+    (goNext)="goToNext()"
+    [page]="page"
+    [perPage]="limit"
+    [count]="total">
+    </app-pagination> -->
+
+  </div>

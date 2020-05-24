@@ -1,0 +1,154 @@
+<div class="section-container">
+    <!-- <span>Global Statistics</span> -->
+    <h5><b>{{ stats['affectedCountries'] }} Countries/Other</b></h5>
+</div>
+
+<!-- <div><br></div> -->
+
+<div class="container-fluid">
+    <div class="row" id="mainContent">
+
+        <!-- <h2>Cases</h2> -->
+        <div class="card col-sm-4 card bg-basic text-black">
+            <div class="card-header" style="text-align: center;">
+                <h1><b>Cases</b></h1>
+            </div>
+
+            <div class="card-body" style="text-align: center;">
+                <em><b>{{ stats['cases'] | number }}</b></em>
+            </div>
+
+            <div class="card-footer" style="text-align: center;">
+                <h4><b>Today: {{ stats['todayCases'] | number }}</b></h4>
+            </div>
+        </div>
+
+        <div class="card col-sm-4">
+            <div class="card-header" style="text-align: center;">
+                <h1><b>Deaths</b></h1>
+            </div>
+
+            <div class="card-body" style="text-align: center;">
+                <em><b>{{ stats['deaths'] | number }}  </b></em>
+                <em><b>({{ stats['deaths'] / stats['cases'] * 100 | number:'1.1-1' }}%) </b></em>
+                <!-- <em><b>{{ stats['deaths'] }}/{{ stats['cases'] }} </b></em> -->
+            </div>
+
+            <div class="card-footer" style="text-align: center;">
+                <h4><b>Today: {{ stats['todayDeaths'] | number }}</b></h4>
+            </div>
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="row" id="mainContent">
+
+        <div class="card col-sm-4">
+            <div class="card-header" style="text-align: center;">
+                <h1>Recovered</h1>
+            </div>
+
+            <div class="card-body" style="text-align: center;">
+                <em>{{ stats['recovered'] | number }}  </em>
+                <em>({{ stats['recovered'] / stats['cases'] * 100 | number:'1.1-1' }}%) </em>
+            </div>
+        </div>
+
+        <div class="card col-sm-4">
+            <div class="card-header" style="text-align: center;">
+                <h1>Active</h1>
+            </div>
+
+            <div class="card-body" style="text-align: center;">
+                <em>{{ stats['active'] | number }}  </em>
+                <em>({{ stats['active'] / stats['cases'] * 100 | number:'1.1-1' }}%) </em>
+            </div>
+        </div>
+
+    </div>
+
+        <!-- <div class="card col-sm-3 col-md-2 d-none d-sm-block">
+            <div class="card-header" style="text-align: center;">
+                <h1>Death Rate</h1>
+            </div>
+
+            <div class="card-body" style="text-align: center;">
+                <em>{{ deathRate }} </em>
+            </div>
+        </div> -->
+
+    <br>
+
+    <!-- <div class="row" id="mainContent">
+
+        <div class="card col-sm-6">
+            <div class="card-header" style="text-align: center;">
+                <h1>Today's Cases</h1>
+            </div>
+
+            <div class="card-body" style="text-align: center;">
+                <em>{{ stats['todayCases'] | number }} </em>
+            </div>
+        </div>
+
+        <div class="card col-sm-6">
+            <div class="card-header" style="text-align: center;">
+                <h1>Today's Deaths</h1>
+            </div>
+
+            <div class="card-body" style="text-align: center;">
+                <em>{{ stats['todayDeaths'] | number }} </em>
+            </div>
+        </div>
+            
+    </div> -->
+
+    <br>
+    <div class="row" id="mainContent">
+
+        <!-- <h2>Cases</h2> -->
+        <div class="card col-sm-3">
+            <div class="card-header" style="text-align: center;">
+                <h1>Cases/Million</h1>
+            </div>
+
+            <div class="card-body" style="text-align: center;">
+                <em>{{ stats['casesPerOneMillion'] | number }} </em>
+            </div>
+        </div>
+
+        <div class="card col-sm-3">
+            <div class="card-header" style="text-align: center;">
+                <h1>Deaths/Million</h1>
+            </div>
+
+            <div class="card-body" style="text-align: center;">
+                <em>{{ stats['deathsPerOneMillion'] | number }} </em>
+            </div>
+        </div>
+            
+        <div class="card col-sm-3">
+            <div class="card-header" style="text-align: center;">
+                <h1>Total Tests</h1>
+            </div>
+
+            <div class="card-body" style="text-align: center;">
+                <em>{{ stats['tests'] | number }} </em>
+            </div>
+        </div>
+
+        <div class="card col-sm-3">
+            <div class="card-header" style="text-align: center;">
+                <h1>Tests/Million</h1>
+            </div>
+
+            <div class="card-body" style="text-align: center;">
+                <em>{{ stats['testsPerOneMillion'] | number }} </em>
+            </div>
+        </div>
+
+    </div>
+
+</div>

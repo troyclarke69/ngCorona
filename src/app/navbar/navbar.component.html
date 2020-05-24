@@ -1,0 +1,52 @@
+<!-- <a class="navbar-brand" [routerLink]="['/']">
+    <span class="logo logo-left">Coronavirus</span>
+    <span class="logo logo-right"> Now</span>
+    <span class="logo-text"><em>Live</em></span>
+  </a> -->
+
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow">
+    <!--<nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">-->
+    <div class="container">
+      <!-- <a class="navbar-brand" [routerLink]="['/']">Home</a> -->
+      <a class="navbar-brand" [routerLink]="['/']">
+        <span class="logo logo-left">Coronavirus</span>
+        <span class="logo logo-right"> Now</span>
+        <span class="logo-text"><em>Live</em></span>
+      </a>
+     
+      <button class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+              aria-label="Toggle navigation"
+              [attr.aria-expanded]="isExpanded"
+              (click)="toggle()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+           [ngClass]="{ show: isExpanded }">
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item"
+              [routerLinkActive]="['link-active']"
+              [routerLinkActiveOptions]="{ exact: true }">         
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-light" [routerLink]="['/corona-news']">News</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-light" [routerLink]="['/corona-global']">Global</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-light" [routerLink]="['/corona-totals/cases']">Countries</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-light" [routerLink]="['//google-chart/area-chart']">Charts</a>
+          </li>
+         
+        </ul>
+      </div>
+    </div>
+    </nav>
+  </header>
+  

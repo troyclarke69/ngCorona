@@ -1,0 +1,54 @@
+<div class="section-container">
+    <h5><b>Stats by Country</b></h5>
+
+    <table class="table table-inverse table-hover header-fixed">
+      <thead class="thead-dark">
+        <tr>
+          <th><a class="" (click)="onClick('country')">Country  <i class="fa fa-sort-desc" aria-hidden="true"></i></a></th>
+          <th><a class="" (click)="onClick('cases')">Cases  <i class="fa fa-sort-desc" aria-hidden="true"></i></a></th>
+          <th><a class="" (click)="onClick('todayCases')">Today's Cases  <i class="fa fa-sort-desc" aria-hidden="true"></i></a></th>
+          <th><a class="" (click)="onClick('deaths')">Deaths  <i class="fa fa-sort-desc" aria-hidden="true"></i></a></th>
+          <th><a class="" (click)="onClick('todayDeaths')">Today's Deaths  <i class="fa fa-sort-desc" aria-hidden="true"></i></a></th>
+          <th><a class="" (click)="onClick('recovered')">Recovered  <i class="fa fa-sort-desc" aria-hidden="true"></i></a></th>
+          <th><a class="" (click)="onClick('active')">Active  <i class="fa fa-sort-desc" aria-hidden="true"></i></a></th>
+          <th><a class="" (click)="onClick('critical')">Critical  <i class="fa fa-sort-desc" aria-hidden="true"></i></a></th>
+          <th><a class="" (click)="onClick('casesPerOneMillion')">Cases/M  <i class="fa fa-sort-desc" aria-hidden="true"></i></a></th>
+          <th><a class="" (click)="onClick('deathsPerOneMillion')">Deaths/M  <i class="fa fa-sort-desc" aria-hidden="true"></i></a></th>
+          <th><a class="" (click)="onClick('tests')">Total Tests  <i class="fa fa-sort-desc" aria-hidden="true"></i></a></th>
+          <th><a class="" (click)="onClick('testsPerOneMillion')">Tests/M  <i class="fa fa-sort-desc" aria-hidden="true"></i></a></th>
+
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let s of stats">
+
+          <td>             
+            <a routerLink="/google-chart/line-chart/{{ s.country }}"
+              title="Population: {{ s.cases * 1000000 / s.casesPerOneMillion | number:'1.0-0' }}">
+              <img src="{{ s.countryInfo.flag }}" width="20%" height="20%"> &nbsp;
+              {{ s.country }}
+            </a>
+          </td>
+          <td>{{ s.cases | number }}</td>
+          <td *ngIf="s.todayCases!=0">{{ s.todayCases | number }}</td>
+          <td *ngIf="s.todayCases==0">n/a</td>
+          <td>{{ s.deaths | number }}</td>
+          <td *ngIf="s.todayDeaths!=0">{{ s.todayDeaths | number }}</td>
+          <td *ngIf="s.todayDeaths==0">n/a</td>
+          <td>{{ s.recovered | number }}</td>
+          <td>{{ s.active | number }}</td>
+          <td>{{ s.critical | number }}</td>
+          <td>{{ s.casesPerOneMillion | number }}</td>
+          <td>{{ s.deathsPerOneMillion | number }}</td>
+          <td *ngIf="s.tests!=0">{{ s.tests | number }}</td>
+          <td *ngIf="s.tests==0">n/a</td>
+          <td *ngIf="s.testsPerOneMillion!=0">{{ s.testsPerOneMillion | number }}</td>
+          <td *ngIf="s.testsPerOneMillion==0">n/a</td>
+         
+        </tr>
+                 
+      </tbody>
+    </table>
+
+  </div>

@@ -1,0 +1,42 @@
+<div class="section-container">
+    <h5><b>Top Headlines</b></h5>
+
+    <table class="table table-inverse table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th></th>
+          <th></th>
+          <!-- <th></th> -->
+          <!-- <th></th>       -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of stats">
+
+          <td width="100px">
+              <img src="{{ s.urlToImage }}" width="140px" height="100px"> 
+          </td>
+          <td width="900px">
+            <h2><b>
+              <a href="{{ s.url }}" target='_blank'>{{ s.title }}</a>
+            </b></h2>
+            <p><em>{{ s.description }}</em></p>
+          </td>
+          <!-- <td><em>{{ s.description }}</em></td> -->
+          <!-- <td>{{ s.source.name }}</td> -->
+          <!-- <td><a href="{{ s.url }}" target='_blank'>Read story</a></td> -->        
+        </tr>
+                 
+      </tbody>
+    </table>
+  
+    <!-- <app-pagination
+    (goPage)="goToPage($event)"
+    (goPrev)="goToPrevious()"
+    (goNext)="goToNext()"
+    [page]="page"
+    [perPage]="limit"
+    [count]="total">
+    </app-pagination> -->
+
+  </div>

@@ -1,27 +1,65 @@
-# AngularTourOfHeroes
+# ngCorona
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
-## Development server
+# Deployment on netlify:
+    * rename or delete existing /dist folder (if necessary)
+    ng build --prod
+    Creates deployment files in /dist folder
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# GoogleChartModule Setup/Developmen:
+# Reference: https://blog.jscrambler.com/creating-a-sales-dashboard-using-angular-and-google-charts/
 
-## Code scaffolding
+# Add Google charts reference to project:
+    a. Add line to index.html: <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    b. OR download loader.js to /assets folder and add path to <scripts> section in angular.json file.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Create Google Charts Service module:
+    ng g module google-chart
 
-## Build
+# Create another module inside google-chart folder (creates another subfolder):
+    ng g module google-chart/service
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# Create service inside service module/folder
+    ng g service google-chart/service/google-chart
 
-## Running unit tests
+    * Note: this file - google-chart.service.ts contains the var 'google' - refers to google charts lib.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Ensure that the service module is imported in google-chart.module.ts (not mentioned in article)
+    ...
+    imports: [
+        CommonModule,
+        ServiceModule 
+    ]
+    ...
 
-## Running end-to-end tests
+    * Note: 'import { ServiceModule } from './service/service.module';'
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+# Create Line chart component inside google-chart folder
+    ng g component google-chart/line-chart
 
-## Further help
+# Add '<div id="divLineChart'></div>' to line-chart.component.html file
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# Ensure that google-chart.module.ts file exports line chart component
+    ...
+    exports: [LineChartComponent],
+    ...
+
+# Modify app.component.html to include chart component
+    <app-line-chart></app-line-chart>
+
+# VERY IMPORTANT (Not mentioned in orig. article)!!!!!!
+    Must add GoogleChartModule to app.module.ts
+
+    ...
+    import { GoogleChartModule } from './google-chart/google-chart.module'
+    ...
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        GoogleChartModule
+    ],
+    ...
+
+# Running app should show 'canned' (static) report
+

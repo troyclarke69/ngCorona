@@ -1,0 +1,39 @@
+<div class="section-container">
+    <h4>
+      COVID19 Cases, Deaths, Recovered - daily
+    </h4>
+
+    <table class="table table-inverse table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <!-- <th>Country</th> -->
+          <th>Date</th>
+          <th>Cases</th>
+          <th>Deaths</th>
+          <th>Recovered</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of stats">
+
+          <!-- <td>{{ s }}</td> -->
+          <td>{{ s.date }}</td>
+          <td>{{ s.confirmed }}</td>
+          <td>{{ s.deaths }}</td>
+          <td>{{ s.recovered }}</td>
+        </tr>
+                 
+      </tbody>
+    </table>
+  
+    <!-- <app-pagination
+    (goPage)="goToPage($event)"
+    (goPrev)="goToPrevious()"
+    (goNext)="goToNext()"
+    [page]="page"
+    [perPage]="limit"
+    [count]="total">
+    </app-pagination> -->
+
+  </div>
