@@ -55,7 +55,7 @@ export class MapComponent implements OnInit
   private drawMain()
   {
     let data = new this.gLib.visualization.arrayToDataTable(this.chartRows);  
-    console.log('drawMain', data);
+    // console.log('drawMain', data);
     var options = {
       showToolTip: true,
       showInfoWindow: true
@@ -106,7 +106,7 @@ export class MapComponent implements OnInit
         chartRow.push(s.country, s.cases);
         this.chartRows.push(chartRow);
       }    
-      console.log('chart', this.chartRows);
+      // console.log('chart', this.chartRows);
       this.drawMain(); 
     })       
   }

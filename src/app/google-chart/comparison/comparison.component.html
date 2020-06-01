@@ -1,0 +1,49 @@
+<h4><b>{{title}}</b></h4>
+
+<div class="container">
+    <!-- <p>For more turorials and courses visit <a [href]="website" target="_blank"> samorgill.com</a></p> -->
+  
+    <div class="list-container">
+  
+      <!-- <div id="divLineChart"></div> --> 
+      <div class="todo-container column-container">
+        <div class="list"
+             cdkDropList
+             #countriesList="cdkDropList"
+             [cdkDropListData]="countries"
+             [cdkDropListConnectedTo]="[reportList]"
+             (cdkDropListDropped)="onDrop($event)">
+          <h2>Countries</h2>
+          <mat-card *ngFor="let c of countries" cdkDrag>
+            <mat-card-header>
+              <mat-card-title>{{c.name}}</mat-card-title>
+              <!-- <mat-card-subtitle>{{todo.category}}</mat-card-subtitle> -->
+            </mat-card-header>
+          </mat-card>
+        </div>
+      </div>
+  
+      <div class="done-container column-container">
+        <div class="list"
+             cdkDropList
+             #reportList="cdkDropList"
+             [cdkDropListData]="report"
+             [cdkDropListConnectedTo]="countriesList"
+             (cdkDropListDropped)="onDrop($event)">
+          <h2>Report</h2>
+          <mat-card *ngFor="let r of report" cdkDrag>
+            <mat-card-header>
+              <mat-card-title>{{r.name}}</mat-card-title>
+              <!-- <mat-card-subtitle>{{complete.category}}</mat-card-subtitle> -->
+            </mat-card-header>
+          </mat-card>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+  <div id="divDailyChart"></div>
+  <div id="divPercChart"></div>
+
+  

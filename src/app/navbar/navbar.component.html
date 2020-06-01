@@ -11,7 +11,7 @@
       <!-- <a class="navbar-brand" [routerLink]="['/']">Home</a> -->
       <a class="navbar-brand" [routerLink]="['/']">
         <span class="logo logo-left">Coronavirus</span>
-        <span class="logo logo-right"> Now</span>
+        <span class="logo logo-right">Now</span>
         <span class="logo-text"><em>Live</em></span>
       </a>
      
@@ -31,17 +31,20 @@
               [routerLinkActive]="['link-active']"
               [routerLinkActiveOptions]="{ exact: true }">         
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
+          <!-- <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-light" [routerLink]="['/corona-news']">News</a>
-          </li>
+          </li> -->
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-light" [routerLink]="['/corona-global']">Global</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-light" [routerLink]="['/corona-totals/cases']">Countries</a>
           </li>
+          <!-- <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-light" [routerLink]="['/google-chart/area-chart']">Charts</a>
+          </li> -->
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-light" [routerLink]="['//google-chart/area-chart']">Charts</a>
+            <a class="nav-link text-light" [routerLink]="['/corona-analysis']">Numbers</a>
           </li>
          
         </ul>

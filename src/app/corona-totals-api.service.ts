@@ -14,7 +14,7 @@ export class ApiService {
 
 	public fetchData(s) {
 
-		console.log("coronaTotalsService:fetchData param", s);  
+		// console.log("coronaTotalsService:fetchData param", s);  
 		return this.httpClient.get(`${this.SERVER_URL}` + s);  
 	}  
 }

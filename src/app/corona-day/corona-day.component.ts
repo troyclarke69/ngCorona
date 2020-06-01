@@ -31,7 +31,7 @@ export class CoronaDayComponent implements OnInit {
 			this.country = params.get("country")
 		})	
 
-		console.log('Param ', this.country);
+		// console.log('Param ', this.country);
 
 		this.apiService.fetchData().subscribe((data: any[])=>{ 			
 			//This seems a bit of a hack, but couldn't figure out another workable method...

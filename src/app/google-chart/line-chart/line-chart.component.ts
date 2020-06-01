@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GoogleChartService } from '../service/google-chart.service';
 import { ActivatedRoute } from '@angular/router';
-import { ChartData } from '../../chart-data'
 import { Location } from '@angular/common';
 
 @Component({
@@ -12,17 +11,14 @@ import { Location } from '@angular/common';
 
 export class LineChartComponent implements OnInit 
 {
-  // @Input() chartData: ChartData;
-
-  private gLib: any;
   private res = [];
+  private gLib: any;
   public country: string;
   private stats = [];
-  // private chart = [];
-  // private chartCols = [];
+  public compData = [];
+  public listData = [];
   private chartRows = [];
   private chartRow = [];
-  public chartData: ChartData;
 
   // gChartService contains google charts lib ++ fetchData
   constructor( 
@@ -40,7 +36,7 @@ export class LineChartComponent implements OnInit
   private drawChart()
   {
     let data = this.gLib.visualization.arrayToDataTable(this.res);
-    console.log('drawChart', data);
+    // console.log('drawChart', data);
     var options = {
       title:'Daily Cases | Deaths | Recovered',
       legend:{position:'top-right'},
@@ -54,9 +50,9 @@ export class LineChartComponent implements OnInit
   private drawMain()
   {
     let data = new this.gLib.visualization.arrayToDataTable(this.chartRows);  
-    console.log('drawMain', data);
+    // console.log('drawMain', data);
     var options = {
-      title:'Daily Cases | Deaths | Recovered',
+      title:'Daily Cases,  Deaths, Recovered',
       //legend:{position:'bottom'},
       chartArea:{width: '50%', height:'50%'},
       curveType: 'function',
@@ -73,6 +69,31 @@ export class LineChartComponent implements OnInit
       }
      };
     let chart = new this.gLib.visualization.LineChart(document.getElementById('divLineChart'));
+    chart.draw(data, options);
+  }
+
+  private drawDaily()
+  {
+    let data = new this.gLib.visualization.arrayToDataTable(this.compData);  
+    // console.log('drawMain', data);
+    var options = {
+      title:'Daily Cases: % Change (last 60 days)',
+      //legend:{position:'bottom'},
+      chartArea:{width: '50%', height:'50%'},
+      curveType: 'function',
+      vAxis: {
+        scaleType: 'linear', //log or linear (default)
+        viewWindowMode: 'explicit',
+        viewWindow: {
+          //max: 8000,
+          min: 0,
+        },
+        gridlines: {
+          count: 5,  //set kind of step (max-min)/count
+        }
+      }
+     };
+    let chart = new this.gLib.visualization.LineChart(document.getElementById('divDailyChart'));
     chart.draw(data, options);
   }
 
@@ -113,7 +134,8 @@ export class LineChartComponent implements OnInit
         {
           this.stats = data[keys[i]];
         };
-      }   
+      } 
+        
       this.chartRow.push('Date', 'Confirmed', 'Recovered', 'Deaths');
       this.chartRows.push(this.chartRow);
       for(let s of this.stats)
@@ -122,8 +144,40 @@ export class LineChartComponent implements OnInit
         chartRow.push(s.date, s.confirmed, s.recovered, s.deaths);
         this.chartRows.push(chartRow);
       }    
-      console.log('chart', this.chartRows);
+
+      // console.log('stats', this.stats[this.stats.length - 1]['confirmed']);
+      var cases = 0; var recovered = 0; var deaths = 0;
+
+      var start = this.stats.length - 1;
+      var end = this.stats.length - 61;
+
+      // this.compData.push(['Date', 'Confirmed', 'Change', 'Percent']);
+      // this.compData.push(['Date', 'Percent']);
+      
+      for (var i = start; i > end; i--) {
+
+        var rowData = [];    
+        rowData.push(this.stats[i]['date'], ( this.stats[i - 1]['confirmed'] - this.stats[i]['confirmed']) / this.stats[i - 1]['confirmed'] * -100);
+        this.compData.push(rowData);
+
+        var d = {};
+        d['date'] = this.stats[i]['date'];
+        d['confirmed'] = this.stats[i]['confirmed'];
+        d['daily'] = ( this.stats[i - 1]['confirmed'] - this.stats[i]['confirmed']) * -1;
+        d['dailypercent'] = ( this.stats[i - 1]['confirmed'] - this.stats[i]['confirmed']) / this.stats[i - 1]['confirmed'] * -100;
+        this.listData.push(d);
+
+        // console.log('date: ', this.stats[i]['date']);
+        // console.log(' >> ', this.stats[i]['confirmed']);
+        // console.log(' >> ',( this.stats[i - 1]['confirmed'] - this.stats[i]['confirmed']) * -1 );
+        // console.log(' >> ',( this.stats[i - 1]['confirmed'] - this.stats[i]['confirmed']) / this.stats[i - 1]['confirmed'] * -100);
+      }
+      this.compData = this.compData.reverse();
+      this.compData.unshift(['Date', 'Percent']);
+      // console.log('compData ', this.compData);
+
       this.drawMain(); 
+      this.drawDaily();
     })       
   }
   

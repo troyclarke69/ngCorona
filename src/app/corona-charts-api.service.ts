@@ -12,7 +12,7 @@ export class ApiService {
 
 	public fetchData(){
 
-		console.log("coronaChartsService:fetchData");  
+		// console.log("coronaChartsService:fetchData");  
     	return this.httpClient.get(`${this.SERVER_URL}`); 
      
 	}  

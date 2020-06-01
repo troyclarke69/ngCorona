@@ -26,6 +26,12 @@ import { CoronaChartsComponent } from './corona-charts/corona-charts.component';
 import { GoogleChartModule } from './google-chart/google-chart.module';
 import { CoronaGlobalComponent } from './corona-global/corona-global.component';
 import { CoronaCountriesComponent } from './corona-countries/corona-countries.component';
+import { CoronaAnalysisComponent } from './corona-analysis/corona-analysis.component';
+
+import {MatCardModule} from '@angular/material/card';
+// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+
 
 @NgModule({
   imports: [
@@ -36,7 +42,10 @@ import { CoronaCountriesComponent } from './corona-countries/corona-countries.co
     BrowserAnimationsModule,
     ChartsModule,
     CommonModule,
-    GoogleChartModule
+    GoogleChartModule,
+
+    MatCardModule,
+    DragDropModule
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
@@ -62,6 +71,7 @@ import { CoronaCountriesComponent } from './corona-countries/corona-countries.co
     CoronaChartsComponent,
     CoronaGlobalComponent,
     CoronaCountriesComponent,
+    CoronaAnalysisComponent,
 
   ],
   bootstrap: [ AppComponent ]

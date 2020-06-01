@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row" id="">
+        <div id="divLineChart" class="col-sm-10"></div>
+    </div>
+</div>
+<p></p>
+<p></p>
+<!-- <h5><b>Cases - Daily Change (last 30 days)</b></h5> -->
+<div class="container-fluid">
+    <div class="row" id="">
+        <div id="divDailyChart" class="col-sm-10"></div>
+    </div>
+</div>
+<p></p>
+<p></p>
+
+<h2><b>Daily Cases: Highest Count & Highest Percentage Increase
+    <!-- <small> for each affected country</small> -->
+</b></h2>
+<table class="table table-striped col-sm-8">
+    <thead class="thead-dark">
+        <th>Country</th>
+        <th colspan="2"># Cases</th>
+        <!-- <th>Cases</th> -->
+        <th colspan="2">Percentage</th>
+        <!-- <th>Perc</th> -->
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of highData" title="* Highest % Date: {{c[3]}}">
+        <td>{{ c[0] }}</td>
+        <td>{{ c[1] }}</td>
+        <td class="border-right">{{ c[2] | number }}</td>
+        <td>{{ c[3] }}</td>
+        <td>{{ c[4] | number:'1.3-3' }}%</td>
+        </tr>
+
+    </tbody>
+</table>
+

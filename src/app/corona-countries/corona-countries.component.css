@@ -1,0 +1,15 @@
+/* div {
+    padding: 0 0 1px 0;    
+} */
+
+ul {
+    list-style-type: none;
+    /* negative browser defaults */
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline;
+    padding: 1px 1px 1px 1px;
+  }

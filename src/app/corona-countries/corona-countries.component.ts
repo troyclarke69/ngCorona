@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';  
 import { ApiService } from '../corona-totals-api.service';
+import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({  
 	selector: 'app-corona-countries',  
@@ -14,13 +15,13 @@ export class CoronaCountriesComponent implements OnInit {
 	constructor(private apiService: ApiService) { }
 	
 	ngOnInit() {
-		// this.apiService.fetchData().subscribe((data: any[])=>{  
-		// 	console.log('corona-countries', data);  
-		// 	this.stats = data;  
-		// }) 		
+		this.apiService.fetchData('casesPerOneMillion').subscribe((data: any[])=>{  
+			console.log('corona-countries', data);  
+			this.stats = data;  
+		}) 		
 	}
 
-	onClick(){
-		console.log('clicked');
+	onClick(c){
+		// console.log('clicked');
 	}
 }

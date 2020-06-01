@@ -36,7 +36,7 @@ export class CoronaDayService {
 
 	public fetchData(){
 		
-		console.log("coronaDayService:fetchData");  
+		// console.log("coronaDayService:fetchData");  
 		return this.httpClient.get(`${this.SERVER_URL}`);  
 	}  
 

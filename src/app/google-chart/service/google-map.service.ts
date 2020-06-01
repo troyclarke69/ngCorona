@@ -24,7 +24,7 @@ export class GoogleMapService {
 
   public fetchData(){
 		
-		console.log("GoogleMapService:fetchData");  
+		// console.log("GoogleMapService:fetchData");  
 		return this.httpClient.get(`${this.SERVER_URL}`);  
   }  
   

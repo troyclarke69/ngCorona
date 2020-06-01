@@ -13,15 +13,20 @@ import { AreaChartComponent } from './google-chart/area-chart/area-chart.compone
 import { MapComponent } from './google-chart/map/map.component'
 import { CoronaGlobalComponent } from './corona-global/corona-global.component'
 import { CoronaCountriesComponent } from './corona-countries/corona-countries.component'
+import { CoronaAnalysisComponent } from './corona-analysis/corona-analysis.component'
+import { AnalysisComponent } from './google-chart/analysis/analysis.component'
 
 const routes: Routes = [
 
   // these are direct feeds:
   { path: '', redirectTo: '/corona-news', pathMatch: 'full' },
+  
   { path: 'corona-news', component: CoronaNewsComponent },
   { path: 'corona-global', component: CoronaGlobalComponent },
   { path: 'corona-totals/:sort', component: CoronaTotalsComponent },
   { path: 'corona-countries', component: CoronaCountriesComponent },
+  { path: 'corona-analysis', component: CoronaAnalysisComponent },
+  { path: 'google-chart/analysis', component: AnalysisComponent },
   
 
   { path: 'google-chart/line-chart/:country', component: LineChartComponent },

@@ -15,7 +15,7 @@ export class CoronaGlobalComponent implements OnInit {
 	
 	ngOnInit() {
 		this.apiService.fetchData().subscribe((data: any[])=>{  
-			console.log(data);  
+			// console.log(data);  
 			this.stats = data; 
 			
 			// let deathRate = this.stats['deaths'] / this.stats['cases'];

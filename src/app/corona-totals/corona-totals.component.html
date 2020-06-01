@@ -1,6 +1,47 @@
 <div class="section-container">
-    <h5><b>Stats by Country</b></h5>
+    <!-- <h5><b>Stats by Continent</b></h5> -->
 
+    <div class="bs-example">
+      <div class="accordion" id="accordionExample">
+          <div class="card">
+              <div class="card-header" id="headingOne" style="background-color:#444444; margin:0px">
+                  <h2 class="mb-0">
+                    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"><h5><b>Stats by Continent</b></h5></button>									
+                  </h2>
+              </div>
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body">
+
+                    <table class="table table-inverse table-hover header-fixed">
+                      <thead class="thead-dark">
+                        <th>Continent</th>
+                        <th>Population</th>
+                        <th>Cases</th>
+                        <th>Case Rate</th>
+                        <th>Deaths</th>
+                        <th>Death Rate</th>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let c of continentData">
+                          <td>{{ c.continent}}</td>
+                          <td>{{ c.population | number }}</td>
+                          <td>{{ c.cases | number }}</td>
+                          <td>{{ c.cases / c.population * 100 | number:'1.3-3' }}%</td>
+                          <td>{{ c.deaths | number }}</td>
+                          <td>{{ c.deaths / c.cases * 100 | number:'1.3-3' }}%</td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+
+                  </div>
+              </div>
+          </div>
+          <!-- </div> -->
+      </div>
+    </div>
+
+    <h5><b>Stats by Country</b></h5>
     <table class="table table-inverse table-hover header-fixed">
       <thead class="thead-dark">
         <tr>

@@ -15,7 +15,7 @@ export class CoronaNewsComponent implements OnInit {
 	ngOnInit() {
 		this.apiService.fetchData().subscribe((data: any[])=>{  
 			this.stats = data['articles']; 
-			console.log('Returned ', this.stats);  
+			// console.log('Returned ', this.stats);  
 		})  
 	}
 }
