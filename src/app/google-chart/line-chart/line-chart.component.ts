@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GoogleChartService } from '../service/google-chart.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -24,7 +24,8 @@ export class LineChartComponent implements OnInit
   constructor( 
                 private gChartService : GoogleChartService,
                 private route: ActivatedRoute,
-                private location: Location )   
+                private location: Location,
+                private router: Router )   
   { 
 
     this.gLib = this.gChartService.getGoogle();
@@ -182,7 +183,8 @@ export class LineChartComponent implements OnInit
   }
   
   goBack(): void {
-    this.location.back();
+    // this.location.back();
+    this.router.navigateByUrl('/corona-totals/cases');  
   }
 
 }

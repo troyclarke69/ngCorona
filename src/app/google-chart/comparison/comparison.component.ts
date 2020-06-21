@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {CdkDragDrop, moveItemInArray, transferArrayItem, CdkDropList} from '@angular/cdk/drag-drop';
+import { Component, OnInit } from '@angular/core';
+import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDropList}  from '@angular/cdk/drag-drop';
 import { GoogleChartService } from '../service/google-chart.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./comparison.component.css']
 })
 export class ComparisonComponent implements OnInit {
-  title = 'Drag/Drop to Add/Remove countries in the Comparison Chart';
+  title = 'Comparison: Country daily cases';
   website = '#';
 
   private res = [];

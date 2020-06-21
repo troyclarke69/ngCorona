@@ -7,16 +7,12 @@ import { ActivatedRoute, Router } from '@angular/router'
 	templateUrl: './corona-countries.component.html',  
 	styleUrls: ['./corona-countries.component.css']  
 })  
-export class CoronaCountriesComponent implements OnInit {
-	
-	stats = [];
-	// cases: any;
-	
+export class CoronaCountriesComponent implements OnInit {	
+	stats = [];	
 	constructor(private apiService: ApiService) { }
 	
 	ngOnInit() {
-		this.apiService.fetchData('casesPerOneMillion').subscribe((data: any[])=>{  
-			console.log('corona-countries', data);  
+		this.apiService.fetchData('todayCases').subscribe((data: any[])=>{  
 			this.stats = data;  
 		}) 		
 	}

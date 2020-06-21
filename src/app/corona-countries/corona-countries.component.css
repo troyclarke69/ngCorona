@@ -1,15 +1,25 @@
-/* div {
-    padding: 0 0 1px 0;    
+.country-flags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.country-flags li {
+  list-style-type: none;
+  padding: 0;
+  flex: 0 1 2rem;
+  margin: .1rem;
+  height: 3.2rem;
+  /* border-bottom: .1rem #c0c0c0 solid; */
+}
+.country-flag{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* height: 100%; */
+}
+/* attempt to line break title */
+/* div { 
+  background-color: #000; 
+  display: block; 
 } */
-
-ul {
-    list-style-type: none;
-    /* negative browser defaults */
-    margin: 0;
-    padding: 0;
-  }
-
-  li {
-    display: inline;
-    padding: 1px 1px 1px 1px;
-  }

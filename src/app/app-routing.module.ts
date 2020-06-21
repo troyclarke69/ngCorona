@@ -19,7 +19,7 @@ import { AnalysisComponent } from './google-chart/analysis/analysis.component'
 const routes: Routes = [
 
   // these are direct feeds:
-  { path: '', redirectTo: '/corona-news', pathMatch: 'full' },
+  { path: '', redirectTo: '/corona-countries', pathMatch: 'full' },
   
   { path: 'corona-news', component: CoronaNewsComponent },
   { path: 'corona-global', component: CoronaGlobalComponent },

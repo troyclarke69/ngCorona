@@ -22,10 +22,8 @@ export class CoronaTotalsComponent implements OnInit {
             this.sort = params.get("sort");
 		})
 		
-		this.apiService.fetchData(this.sort).subscribe((data: any[])=>{  
-			// console.log(data);  
-			this.stats = data; 
-			
+		this.apiService.fetchData(this.sort).subscribe((data: any[])=>{   
+			this.stats = data; 			
 			var continent = [];
 			var population = [];
 			var cases = [];
@@ -68,20 +66,15 @@ export class CoronaTotalsComponent implements OnInit {
 				rowData['deaths'] = deaths[l];
 				this.continentData.push(rowData);
 			}
-
-			// console.log(JSON.stringify(this.continentData));
 		}) 
 	}
 
-	onClick(s){
-		
-		this.apiService.fetchData(s).subscribe((data: any[])=>{  
-			// console.log(data);  
+	onClick(s){		
+		this.apiService.fetchData(s).subscribe((data: any[])=>{   
 			this.stats = data;  
 		}) 	
 
 		// reload this page
 		this.router.navigateByUrl('/corona-totals/' + s);  
-		// console.log(s);  
 	}
 }
